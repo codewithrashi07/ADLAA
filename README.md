@@ -107,7 +107,21 @@ adlaa/
 
 ## Deployment
 
-`render.yaml` and `Procfile` are included. On Render/Railway/Heroku:
+### Vercel
+
+`vercel.json` routes every request to `api/index.js`, which wraps the same Express app as a
+serverless function, so importing the repo into Vercel works with no extra configuration.
+Vercel's filesystem is read-only apart from `/tmp`, so the JSON store writes to
+`/tmp/adlaa/applications.json` there and demo data is seeded automatically on a cold start
+(set `ADLAA_SEED=false` to disable). That storage is per-instance and temporary — set
+`MONGODB_URI` to a MongoDB Atlas connection string for data that survives.
+
+Useful environment variables: `MONGODB_URI`, `ADLAA_DATA_FILE` (custom JSON store path),
+`ADLAA_SEED`.
+
+### Render / Railway / Heroku
+
+`render.yaml` and `Procfile` are included:
 
 1. Set `MONGODB_URI` to a MongoDB Atlas connection string (optional but recommended in production —
    the JSON fallback is per-instance and is lost when the instance restarts).

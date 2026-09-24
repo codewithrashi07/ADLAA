@@ -15,7 +15,8 @@ class JsonStore {
   }
 
   get label() {
-    return `json-file (${path.relative(process.cwd(), this.file)})`;
+    const relative = path.relative(process.cwd(), this.file);
+    return `json-file (${relative.startsWith('..') ? this.file : relative})`;
   }
 
   async connect() {
