@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADLAA | Dashboard</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%232563eb'/><text x='50' y='68' font-size='54' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>A</text></svg>">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="wrap">
+            <a href="/" class="logo"><span class="logo-mark">A</span>ADLAA</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <nav class="nav-links">
+                <a href="/">Home</a>
+                <a href="/#services">Services</a>
+                <a href="/track.html">Track</a>
+                <a href="/dashboard.html" class="active">Dashboard</a>
+                <a href="/form.html" class="nav-cta">Start Application</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+
+        <div class="dashboard-header">
+            <div>
+                <span class="badge">ADLAA Analytics</span>
+                <h1>Application Dashboard</h1>
+                <p>Live data across every application submitted to the platform.</p>
+            </div>
+
+            <div class="dashboard-toolbar">
+                <span class="live-tag" id="updatedAt">Loading…</span>
+                <button class="btn btn-secondary btn-sm" id="refreshBtn">Refresh</button>
+                <a class="btn btn-primary btn-sm" href="/form.html">New Application</a>
+            </div>
+        </div>
+
+        <!-- ================= KPIs ================= -->
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-title">Total Applications</div>
+                <div class="stat-value" id="kpiTotal">0</div>
+                <p>Submitted through ADLAA</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-title">Resolution Rate</div>
+                <div class="stat-value" id="kpiResolution">0%</div>
+                <p>Approved or rejected</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-title">Avg. Completion Time</div>
+                <div class="stat-value" id="kpiTime">0</div>
+                <p id="kpiTimeSuffix">seconds average completion</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-title">Avg. Estimated Days</div>
+                <div class="stat-value" id="kpiDays">0</div>
+                <p>Predicted service turnaround</p>
+            </div>
+        </div>
+
+        <!-- ================= CHARTS ================= -->
+
+        <div class="dashboard-grid">
+
+            <div class="dashboard-card">
+                <h2>Complexity Distribution</h2>
+                <div class="donut-wrap">
+                    <div class="donut" id="difficultyDonut">
+                        <div class="donut-center">
+                            <strong id="donutTotal">0</strong>
+                            <small>Total</small>
+                        </div>
+                    </div>
+                    <div class="legend" id="difficultyLegend"></div>
+                </div>
+            </div>
+
+            <div class="dashboard-card">
+                <h2>Submissions — Last 7 Days</h2>
+                <div class="spark" id="trendChart"></div>
+            </div>
+
+            <div class="dashboard-card">
+                <h2>Applications by Category</h2>
+                <div class="bar-chart" id="categoryChart"></div>
+            </div>
+
+            <div class="dashboard-card">
+                <h2>Status Pipeline <span id="statusTotal" style="float:right;font-size:12px;"></span></h2>
+                <div class="bar-chart" id="statusChart"></div>
+            </div>
+
+            <div class="dashboard-card">
+                <h2>Your Latest Application</h2>
+                <div id="latestPanel"></div>
+            </div>
+
+            <div class="dashboard-card">
+                <h2>User Behaviour Averages</h2>
+                <div class="summary-list" id="behaviourList"></div>
+
+                <h2 style="margin-top:24px;">Top Locations</h2>
+                <div class="summary-list" id="locationList"></div>
+            </div>
+
+        </div>
+
+        <!-- ================= TABLE ================= -->
+
+        <div class="dashboard-card">
+            <h2>All Applications</h2>
+
+            <div class="table-toolbar">
+                <input type="search" id="searchInput" placeholder="Search by name, service, location or tracking ID">
+
+                <select id="statusFilter">
+                    <option value="">All statuses</option>
+                    <option>Submitted</option>
+                    <option>In Review</option>
+                    <option>Action Needed</option>
+                    <option>Approved</option>
+                    <option>Rejected</option>
+                </select>
+
+                <select id="difficultyFilter">
+                    <option value="">All complexity</option>
+                    <option value="LOW">Low</option>
+                    <option value="MEDIUM">Medium</option>
+                    <option value="HIGH">High</option>
+                </select>
+            </div>
+
+            <div class="table-scroll">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Tracking ID</th>
+                            <th>Applicant</th>
+                            <th>Service</th>
+                            <th>Complexity</th>
+                            <th>Status</th>
+                            <th>Submitted</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <tr><td colspan="7"><div class="empty-state">Loading applications…</div></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pagination">
+                <span id="pageInfo"></span>
+                <div>
+                    <button class="btn btn-secondary btn-sm" id="prevPage">Previous</button>
+                    <button class="btn btn-secondary btn-sm" id="nextPage">Next</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <p>© 2026 ADLAA · Smart Digital Service Platform</p>
+            <div class="foot-links">
+                <a href="/">Home</a>
+                <a href="/form.html">Apply</a>
+                <a href="/track.html">Track</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/common.js"></script>
+    <script src="/js/dashboard.js"></script>
+</body>
+
+</html>

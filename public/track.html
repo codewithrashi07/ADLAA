@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADLAA | Track Application</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%232563eb'/><text x='50' y='68' font-size='54' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>A</text></svg>">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="wrap">
+            <a href="/" class="logo"><span class="logo-mark">A</span>ADLAA</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <nav class="nav-links">
+                <a href="/">Home</a>
+                <a href="/#services">Services</a>
+                <a href="/track.html" class="active">Track</a>
+                <a href="/dashboard.html">Dashboard</a>
+                <a href="/form.html" class="nav-cta">Start Application</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-container" style="width:min(1060px,94vw);">
+
+        <div class="form-header">
+            <span class="badge">Application Tracking</span>
+            <h1>Track Your Application</h1>
+            <p>Enter the ADLAA tracking ID you received when you submitted your application.</p>
+        </div>
+
+        <form class="track-form" id="trackForm">
+            <input type="text" id="trackInput" placeholder="ADL-XXXX-XXXXXX" autocomplete="off">
+            <button type="submit" class="btn btn-primary">Track</button>
+        </form>
+
+        <div id="trackResult">
+            <div class="empty-state">
+                <strong>Enter a tracking ID</strong>
+                Your most recent application on this device loads automatically.
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <p>© 2026 ADLAA · Smart Digital Service Platform</p>
+            <div class="foot-links">
+                <a href="/">Home</a>
+                <a href="/form.html">Apply</a>
+                <a href="/dashboard.html">Dashboard</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/common.js"></script>
+    <script src="/js/track.js"></script>
+</body>
+
+</html>

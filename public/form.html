@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADLAA | Application Form</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%232563eb'/><text x='50' y='68' font-size='54' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>A</text></svg>">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="wrap">
+            <a href="/" class="logo"><span class="logo-mark">A</span>ADLAA</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <nav class="nav-links">
+                <a href="/">Home</a>
+                <a href="/#services">Services</a>
+                <a href="/track.html">Track</a>
+                <a href="/dashboard.html">Dashboard</a>
+                <a href="/form.html" class="nav-cta active">Apply</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-container">
+
+        <div class="form-header">
+            <span class="badge">Smart Application</span>
+            <h1>Tell Us What You Need</h1>
+            <p>Three short steps. ADLAA analyses your request and returns a personalised action plan.</p>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-step active"><span>1</span> Basic Details</div>
+            <div class="progress-line"></div>
+            <div class="progress-step"><span>2</span> Service Need</div>
+            <div class="progress-line"></div>
+            <div class="progress-step"><span>3</span> Review</div>
+        </div>
+
+        <!-- ================= FORM ================= -->
+
+        <div id="formShell">
+            <form id="applicationForm" class="card" novalidate>
+
+                <!-- STEP 1 -->
+                <section class="form-step active" id="step1">
+                    <h2>Basic Details</h2>
+                    <p class="step-description">Let's start with some basic information about you.</p>
+
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" autocomplete="name">
+                        <span class="error-message" id="nameError"></span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" name="age" placeholder="Enter your age" min="1" max="120">
+                            <span class="error-message" id="ageError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" name="location" placeholder="City / district">
+                            <span class="error-message" id="locationError"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-primary" id="nextStep">Continue</button>
+                    </div>
+                </section>
+
+                <!-- STEP 2 -->
+                <section class="form-step" id="step2">
+                    <h2>Tell Us Your Requirement</h2>
+                    <p class="step-description">Choose a category and describe what you need help with.</p>
+
+                    <div class="form-group">
+                        <label for="category">Service Category</label>
+                        <select id="category" name="category">
+                            <option value="">Loading categories…</option>
+                        </select>
+                        <span class="error-message" id="categoryError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Service Required</label>
+                        <input type="text" id="service" name="service" list="serviceOptions" placeholder="Example: Income Certificate" autocomplete="off">
+                        <datalist id="serviceOptions"></datalist>
+                        <p class="field-hint" id="serviceHint">Select a category first to see suggestions.</p>
+                        <span class="error-message" id="serviceError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Briefly Describe Your Requirement</label>
+                        <textarea id="description" name="description" placeholder="Tell us what assistance you need, and mention anything unusual about your case."></textarea>
+                        <span class="error-message" id="descriptionError"></span>
+                    </div>
+
+                    <div class="help-box">
+                        <strong>Smart Assistance</strong>
+                        <p>Preview ADLAA's analysis before you submit — complexity, timeline and the documents you will need.</p>
+                        <button type="button" class="btn btn-primary btn-sm" id="smartHelpBtn">Get Assistance</button>
+                        <div class="assist-output" id="assistOutput"></div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="prevStep">Back</button>
+                        <button type="button" class="btn btn-primary" id="nextStep2">Continue</button>
+                    </div>
+                </section>
+
+                <!-- STEP 3 -->
+                <section class="form-step" id="step3">
+                    <h2>Review Your Application</h2>
+                    <p class="step-description">Please check your details before submitting.</p>
+
+                    <div class="summary-list">
+                        <div><span>Full Name</span><strong id="summaryName">—</strong></div>
+                        <div><span>Age</span><strong id="summaryAge">—</strong></div>
+                        <div><span>Location</span><strong id="summaryLocation">—</strong></div>
+                        <div><span>Category</span><strong id="summaryCategory">—</strong></div>
+                        <div><span>Service</span><strong id="summaryService">—</strong></div>
+                        <div><span>Requirement</span><strong id="summaryDescription">—</strong></div>
+                    </div>
+
+                    <div class="help-box">
+                        <strong>Before You Submit</strong>
+                        <p>Your information is analysed on the server to generate a complexity score, document checklist and a tracking ID.</p>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="backToStep2">Back</button>
+                        <button type="submit" class="btn btn-primary" id="submitBtn">Submit Application</button>
+                    </div>
+                </section>
+
+            </form>
+        </div>
+
+        <!-- ================= RESULT ================= -->
+
+        <section class="result-panel" id="resultPanel">
+
+            <div class="success-banner">
+                <div class="success-icon">✓</div>
+                <h2>Application Submitted</h2>
+                <p>ADLAA has analysed your request. Save your tracking ID to follow progress at any time.</p>
+
+                <div class="tracking-pill">
+                    <span id="trackingValue">—</span>
+                    <button class="btn btn-ghost btn-sm" id="copyTracking" style="padding:2px 8px;">Copy</button>
+                </div>
+            </div>
+
+            <div class="result-grid">
+
+                <div class="card">
+                    <h3>Analysis Result</h3>
+                    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
+                        <span class="difficulty-badge" id="resultDifficulty">—</span>
+                        <strong id="resultEta">—</strong>
+                    </div>
+
+                    <div class="meter"><div class="meter-fill" id="scoreMeter" style="width:0%"></div></div>
+                    <div class="meter-label">
+                        <span id="scoreLabel">Complexity score</span>
+                        <span>Confidence <b id="resultConfidence">—</b></span>
+                    </div>
+
+                    <ul class="breakdown" id="breakdownList"></ul>
+                </div>
+
+                <div class="card">
+                    <h3>Application Overview</h3>
+                    <div class="summary-list">
+                        <div><span>Matched service</span><strong id="resultService">—</strong></div>
+                        <div><span>Category</span><strong id="resultCategory">—</strong></div>
+                        <div><span>Next step</span><strong id="resultNextStep">—</strong></div>
+                    </div>
+                    <p style="margin-top:16px;color:var(--muted);font-size:14px;" id="resultMessage"></p>
+                </div>
+
+                <div class="card">
+                    <h3>Documents You Need</h3>
+                    <ul class="doc-list" id="docList"></ul>
+                </div>
+
+                <div class="card">
+                    <h3>Your Action Plan</h3>
+                    <ul class="plan-list" id="planList"></ul>
+                </div>
+
+            </div>
+
+            <div style="display:flex;gap:14px;justify-content:center;margin-top:28px;flex-wrap:wrap;">
+                <a class="btn btn-primary" id="trackLink" href="/track.html">Track This Application</a>
+                <a class="btn btn-secondary" href="/dashboard.html">Go to Dashboard</a>
+                <a class="btn btn-secondary" href="/form.html">New Application</a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <p>© 2026 ADLAA · Smart Digital Service Platform</p>
+            <div class="foot-links">
+                <a href="/">Home</a>
+                <a href="/track.html">Track</a>
+                <a href="/dashboard.html">Dashboard</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/common.js"></script>
+    <script src="/js/form.js"></script>
+</body>
+
+</html>

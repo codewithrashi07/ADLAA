@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADLAA | Smart Digital Service Platform</title>
+    <meta name="description" content="ADLAA simplifies access to digital services through smart automation, complexity analysis and personalised guidance.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%232563eb'/><text x='50' y='68' font-size='54' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>A</text></svg>">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="wrap">
+            <a href="/" class="logo"><span class="logo-mark">A</span>ADLAA</a>
+
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+
+            <nav class="nav-links">
+                <a href="#how-it-works">How It Works</a>
+                <a href="#services">Services</a>
+                <a href="#features">Features</a>
+                <a href="/track.html">Track</a>
+                <a href="/dashboard.html">Dashboard</a>
+                <a href="/form.html" class="nav-cta">Start Application</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ================= HERO ================= -->
+
+        <section class="hero" id="home">
+            <div class="wrap">
+
+                <div>
+                    <span class="badge">Smart Digital Service Platform</span>
+
+                    <h1>
+                        Digital Services
+                        <span>That Adapt to You.</span>
+                    </h1>
+
+                    <p class="lead">
+                        ADLAA analyses what you need, tells you how complex it is, lists the exact
+                        documents required and tracks the application to completion — all in one place.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="/form.html" class="btn btn-primary">Start Application</a>
+                        <a href="/track.html" class="btn btn-secondary">Track an Application</a>
+                    </div>
+
+                    <div class="hero-stats" id="heroStats">
+                        <div><strong id="statApplications">0</strong><span>Applications</span></div>
+                        <div><strong id="statServices">0</strong><span>Services mapped</span></div>
+                        <div><strong id="statResolution">0%</strong><span>Resolved</span></div>
+                        <div><strong id="statAvgDays">0</strong><span>Avg. days</span></div>
+                    </div>
+                </div>
+
+                <!-- LIVE ANALYSER -->
+
+                <div class="hero-card">
+                    <div class="card-header">
+                        <span>ADLAA Smart Assistant</span>
+                        <span class="status-dot">Live</span>
+                    </div>
+
+                    <div class="mini-field">
+                        <label for="demoCategory">Service category</label>
+                        <select id="demoCategory"></select>
+                    </div>
+
+                    <div class="mini-field">
+                        <label for="demoService">What do you need?</label>
+                        <input type="text" id="demoService" value="Old Age Pension" placeholder="e.g. Income Certificate">
+                    </div>
+
+                    <div class="live-result">
+                        <div class="row">
+                            <span class="difficulty-badge" id="demoDifficulty">—</span>
+                            <strong id="demoDays">—</strong>
+                        </div>
+                        <p id="demoMessage">Analysing your request…</p>
+                    </div>
+
+                    <a href="/form.html" class="btn btn-primary" style="width:100%;margin-top:18px;">Get Started</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= HOW IT WORKS ================= -->
+
+        <section class="section" id="how-it-works">
+            <div class="wrap">
+
+                <div class="section-head">
+                    <span class="badge">Simple Process</span>
+                    <h2>How ADLAA Works</h2>
+                    <p>From describing your need to receiving a personalised action plan in three steps.</p>
+                </div>
+
+                <div class="grid-3">
+                    <div class="feature-card">
+                        <div class="icon">01</div>
+                        <h3>Tell Us Your Need</h3>
+                        <p>A short guided form captures who you are and what service you are looking for.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="icon">02</div>
+                        <h3>Smart Analysis</h3>
+                        <p>Our engine scores complexity, matches your request to a known service and estimates the timeline.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="icon">03</div>
+                        <h3>Get Guided</h3>
+                        <p>Receive your document checklist, step-by-step plan and a tracking ID to follow progress.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= SERVICE CATALOGUE ================= -->
+
+        <section class="section" id="services" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+            <div class="wrap">
+
+                <div class="section-head">
+                    <span class="badge">Service Catalogue</span>
+                    <h2>Categories We Cover</h2>
+                    <p>Loaded live from the ADLAA service catalogue API — pick a category to start an application.</p>
+                </div>
+
+                <div class="grid-4" id="categoryGrid">
+                    <div class="category-card skeleton" style="height:170px;"></div>
+                    <div class="category-card skeleton" style="height:170px;"></div>
+                    <div class="category-card skeleton" style="height:170px;"></div>
+                    <div class="category-card skeleton" style="height:170px;"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= FEATURES ================= -->
+
+        <section class="section" id="features">
+            <div class="wrap">
+
+                <div class="section-head">
+                    <span class="badge">Platform Features</span>
+                    <h2>Everything in One Place</h2>
+                    <p>Built as a full-stack platform: a REST API, an analysis engine and a live analytics dashboard.</p>
+                </div>
+
+                <div class="grid-3">
+                    <div class="feature-card">
+                        <div class="icon">AI</div>
+                        <h3>Complexity Scoring</h3>
+                        <p>Each request is scored on category, service turnaround, urgency and complications — with the reasoning shown to you.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="icon">DOC</div>
+                        <h3>Document Checklists</h3>
+                        <p>Exact documents for the matched service, so nothing is missing at the counter.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="icon">ID</div>
+                        <h3>Tracking IDs</h3>
+                        <p>Every submission gets an ADLAA tracking ID with a full status timeline.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="icon">↗</div>
+                        <h3>Live Dashboard</h3>
+                        <p>Aggregate analytics across all applications: difficulty mix, categories, weekly trend and behaviour metrics.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="icon">API</div>
+                        <h3>Open REST API</h3>
+                        <p>Every screen is powered by documented JSON endpoints that any client can consume.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="icon">DB</div>
+                        <h3>Runs Anywhere</h3>
+                        <p>Uses MongoDB when configured and automatically falls back to a local store, so a demo never fails.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= CTA ================= -->
+
+        <section class="section" id="about">
+            <div class="wrap">
+                <div class="cta-band">
+                    <h2>Ready to Simplify Your Service Journey?</h2>
+                    <p>Start an application and get a complexity score, document checklist and action plan in under a minute.</p>
+                    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+                        <a href="/form.html" class="btn btn-primary">Start Application</a>
+                        <a href="/dashboard.html" class="btn btn-secondary">View Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <p>© 2026 ADLAA · Smart Digital Service Platform</p>
+            <div class="foot-links">
+                <a href="/form.html">Apply</a>
+                <a href="/track.html">Track</a>
+                <a href="/dashboard.html">Dashboard</a>
+                <a href="/api/health">API Health</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/common.js"></script>
+    <script src="/js/home.js"></script>
+</body>
+
+</html>
