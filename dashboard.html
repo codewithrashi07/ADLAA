@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ADLAA | Dashboard</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            ADLAA
+        </div>
+
+        <div class="nav-links">
+            <a href="/index.html">Home</a>
+            <a href="/index.html#how-it-works">How It Works</a>
+            <a href="/index.html#features">Features</a>
+            <a href="/index.html#about">About</a>
+            <a href="/dashboard.html" class="active">Dashboard</a>
+        </div>
+
+    </nav>
+
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <main class="dashboard-container">
+
+        <div class="dashboard-header">
+
+            <p>ADLAA Smart Assistant</p>
+
+            <h1>Application Dashboard</h1>
+
+            <p>
+                Track your application details, task complexity
+                and assistance progress.
+            </p>
+
+        </div>
+
+
+        <!-- ================= STAT CARDS ================= -->
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-title">
+                    Application Status
+                </div>
+
+                <div class="stat-value" id="statusValue">
+                    Submitted
+                </div>
+
+                <p>
+                    Current application status
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-title">
+                    Task Time
+                </div>
+
+                <div class="stat-value" id="taskTimeValue">
+                    --
+                </div>
+
+                <p>
+                    Time taken to complete
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-title">
+                    Total Clicks
+                </div>
+
+                <div class="stat-value" id="clicksValue">
+                    --
+                </div>
+
+                <p>
+                    Interaction count
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= MAIN GRID ================= -->
+
+        <div class="dashboard-grid">
+
+
+            <!-- APPLICATION SUMMARY -->
+
+            <div class="dashboard-card">
+
+                <h2>Application Summary</h2>
+
+                <div class="summary-list">
+
+                    <div>
+                        <span>Name</span>
+                        <strong id="nameValue">--</strong>
+                    </div>
+
+                    <div>
+                        <span>Age</span>
+                        <strong id="ageValue">--</strong>
+                    </div>
+
+                    <div>
+                        <span>Location</span>
+                        <strong id="locationValue">--</strong>
+                    </div>
+
+                    <div>
+                        <span>Category</span>
+                        <strong id="categoryValue">--</strong>
+                    </div>
+
+                    <div>
+                        <span>Service</span>
+                        <strong id="serviceValue">--</strong>
+                    </div>
+
+                    <div>
+                        <span>Description</span>
+                        <strong id="descriptionValue">--</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DIFFICULTY -->
+
+            <div class="dashboard-card">
+
+                <h2>Service Complexity</h2>
+
+                <div class="difficulty-panel">
+
+                    <div
+                        class="difficulty-badge"
+                        id="difficultyBadge"
+                    >
+                        --
+                    </div>
+
+                    <div
+                        class="metric-value"
+                        id="difficultyValue"
+                    >
+                        --
+                    </div>
+
+                    <p id="difficultyMessage">
+                        Your service complexity will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PERFORMANCE -->
+
+            <div class="dashboard-card">
+
+                <h2>Task Performance</h2>
+
+                <div class="analysis-content">
+
+                    <div class="analysis-item">
+
+                        <span>Task Time</span>
+
+                        <strong id="performanceTime">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="analysis-item">
+
+                        <span>Clicks</span>
+
+                        <strong id="performanceClicks">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="analysis-item">
+
+                        <span>Validation Errors</span>
+
+                        <strong id="errorValue">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="analysis-item">
+
+                        <span>Back Actions</span>
+
+                        <strong id="backValue">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="analysis-item">
+
+                        <span>Help Requests</span>
+
+                        <strong id="helpValue">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- NEXT STEP -->
+
+            <div class="dashboard-card smart-insight">
+
+                <h2>ADLAA Recommendation</h2>
+
+                <div class="analysis-content">
+
+                    <div class="analysis-item">
+
+                        <span>Next Step</span>
+
+                        <strong id="nextStepValue">
+                            --
+                        </strong>
+
+                    </div>
+
+                    <p id="resultMessage">
+                        Your personalized assistance message
+                        will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= ACTIONS ================= -->
+
+        <div class="dashboard-actions">
+
+            <a
+                href="/form.html"
+                class="btn btn-primary"
+            >
+                New Application
+            </a>
+
+            <a
+                href="/index.html"
+                class="btn btn-secondary"
+            >
+                Back to Home
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= DASHBOARD SCRIPT ================= -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const rawData =
+                localStorage.getItem("adlaaApplication");
+
+            if (!rawData) {
+
+                console.log(
+                    "No application data found."
+                );
+
+                return;
+            }
+
+
+            let data;
+
+            try {
+
+                data = JSON.parse(rawData);
+
+            } catch (error) {
+
+                console.error(
+                    "Unable to read application data:",
+                    error
+                );
+
+                return;
+            }
+
+
+            // ================= BASIC DATA =================
+
+            setValue(
+                "statusValue",
+                data.status || "Submitted"
+            );
+
+            setValue(
+                "nameValue",
+                data.name || "--"
+            );
+
+            setValue(
+                "ageValue",
+                data.age || "--"
+            );
+
+            setValue(
+                "locationValue",
+                data.location || "--"
+            );
+
+            setValue(
+                "categoryValue",
+                data.categoryName ||
+                data.category ||
+                "--"
+            );
+
+            setValue(
+                "serviceValue",
+                data.service || "--"
+            );
+
+            setValue(
+                "descriptionValue",
+                data.description || "--"
+            );
+
+
+            // ================= TASK METRICS =================
+
+            const taskTime =
+                Number(data.taskTime || 0);
+
+            const clicks =
+                Number(data.clicks || 0);
+
+            setValue(
+                "taskTimeValue",
+                formatTime(taskTime)
+            );
+
+            setValue(
+                "performanceTime",
+                formatTime(taskTime)
+            );
+
+            setValue(
+                "clicksValue",
+                clicks
+            );
+
+            setValue(
+                "performanceClicks",
+                clicks
+            );
+
+
+            // ================= OTHER METRICS =================
+
+            setValue(
+                "errorValue",
+                data.validationErrors || 0
+            );
+
+            setValue(
+                "backValue",
+                data.backActions || 0
+            );
+
+            setValue(
+                "helpValue",
+                data.helpRequests || 0
+            );
+
+
+            // ================= DIFFICULTY =================
+
+            const difficulty =
+                data.difficulty || "Medium";
+
+            setValue(
+                "difficultyValue",
+                difficulty
+            );
+
+            setValue(
+                "difficultyBadge",
+                difficulty
+            );
+
+
+            const difficultyBadge =
+                document.getElementById(
+                    "difficultyBadge"
+                );
+
+            const difficultyValue =
+                document.getElementById(
+                    "difficultyValue"
+                );
+
+
+            if (difficultyBadge) {
+
+                difficultyBadge.classList.remove(
+                    "difficulty-low",
+                    "difficulty-medium",
+                    "difficulty-high"
+                );
+
+                if (
+                    difficulty.toLowerCase() === "low"
+                ) {
+
+                    difficultyBadge.classList.add(
+                        "difficulty-low"
+                    );
+
+                } else if (
+                    difficulty.toLowerCase() === "high"
+                ) {
+
+                    difficultyBadge.classList.add(
+                        "difficulty-high"
+                    );
+
+                } else {
+
+                    difficultyBadge.classList.add(
+                        "difficulty-medium"
+                    );
+
+                }
+
+            }
+
+
+            if (difficultyValue) {
+
+                difficultyValue.classList.remove(
+                    "low",
+                    "medium",
+                    "high"
+                );
+
+                difficultyValue.classList.add(
+                    difficulty.toLowerCase()
+                );
+
+            }
+
+
+            // ================= DIFFICULTY MESSAGE =================
+
+            const difficultyMessage =
+                document.getElementById(
+                    "difficultyMessage"
+                );
+
+            if (difficultyMessage) {
+
+                if (
+                    difficulty.toLowerCase() === "low"
+                ) {
+
+                    difficultyMessage.textContent =
+                        "This service appears relatively simple and may require fewer steps.";
+
+                } else if (
+                    difficulty.toLowerCase() === "high"
+                ) {
+
+                    difficultyMessage.textContent =
+                        "This service may require additional steps or assistance.";
+
+                } else {
+
+                    difficultyMessage.textContent =
+                        "This service has a moderate level of complexity.";
+
+                }
+
+            }
+
+
+            // ================= NEXT STEP =================
+
+            setValue(
+                "nextStepValue",
+                data.nextStep ||
+                "Continue with the recommended service process."
+            );
+
+
+            setValue(
+                "resultMessage",
+                data.resultMessage ||
+                "ADLAA has analyzed your application and provided the relevant next step."
+            );
+
+        });
+
+
+        // ================= HELPER =================
+
+        function setValue(id, value) {
+
+            const element =
+                document.getElementById(id);
+
+            if (element) {
+
+                element.textContent =
+                    value;
+
+            }
+
+        }
+
+
+        // ================= TIME FORMAT =================
+
+        function formatTime(seconds) {
+
+            seconds =
+                Number(seconds || 0);
+
+            if (seconds < 60) {
+
+                return seconds + " sec";
+
+            }
+
+            const minutes =
+                Math.floor(seconds / 60);
+
+            const remainingSeconds =
+                seconds % 60;
+
+            return (
+                minutes +
+                " min " +
+                remainingSeconds +
+                " sec"
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>

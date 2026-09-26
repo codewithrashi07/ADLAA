@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ADLAA | Application Form</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header class="navbar">
+
+        <a href="/index.html" class="logo">
+            ADLAA
+        </a>
+
+        <nav>
+            <a href="/index.html">Home</a>
+            <a href="/index.html#how-it-works">How It Works</a>
+            <a href="/index.html#features">Features</a>
+            <a href="/dashboard.html">Dashboard</a>
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         FORM CONTAINER
+    ========================== -->
+
+    <main class="form-container">
+
+        <!-- FORM HEADER -->
+
+        <div class="form-header">
+
+            <span class="badge">
+                Smart Application
+            </span>
+
+            <h1>
+                Tell Us What You Need
+            </h1>
+
+            <p>
+                Provide a few details and ADLAA will help guide
+                you towards the relevant service.
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             PROGRESS
+        ========================== -->
+
+        <div class="progress-container">
+
+            <div class="progress-step active">
+                <span>1</span>
+                Basic Details
+            </div>
+
+            <div class="progress-line"></div>
+
+            <div class="progress-step">
+                <span>2</span>
+                Service Need
+            </div>
+
+            <div class="progress-line"></div>
+
+            <div class="progress-step">
+                <span>3</span>
+                Review
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             APPLICATION FORM
+        ========================== -->
+
+        <form id="applicationForm">
+
+
+            <!-- =========================
+                 STEP 1
+            ========================== -->
+
+            <section class="form-step active" id="step1">
+
+                <h2>
+                    Basic Details
+                </h2>
+
+                <p class="step-description">
+                    Let's start with some basic information.
+                </p>
+
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                    <span
+                        class="error-message"
+                        id="nameError">
+                    </span>
+
+                </div>
+
+
+                <!-- AGE -->
+
+                <div class="form-group">
+
+                    <label for="age">
+                        Age
+                    </label>
+
+                    <input
+                        type="number"
+                        id="age"
+                        name="age"
+                        placeholder="Enter your age"
+                        min="1"
+                        max="120"
+                        required
+                    >
+
+                    <span
+                        class="error-message"
+                        id="ageError">
+                    </span>
+
+                </div>
+
+
+                <!-- LOCATION -->
+
+                <div class="form-group">
+
+                    <label for="location">
+                        Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        name="location"
+                        placeholder="Enter your city / district"
+                        required
+                    >
+
+                    <span
+                        class="error-message"
+                        id="locationError">
+                    </span>
+
+                </div>
+
+
+                <!-- BUTTON -->
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        class="btn primary-btn"
+                        id="nextStep">
+                        Continue
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================
+                 STEP 2
+            ========================== -->
+
+            <section class="form-step" id="step2">
+
+                <h2>
+                    Tell Us Your Requirement
+                </h2>
+
+                <p class="step-description">
+                    Select the category that best describes your need.
+                </p>
+
+
+                <!-- CATEGORY -->
+
+                <div class="form-group">
+
+                    <label for="category">
+                        Service Category
+                    </label>
+
+                    <select
+                        id="category"
+                        name="category"
+                        required>
+
+                        <option value="">
+                            Select a category
+                        </option>
+
+                        <option value="education">
+                            Education
+                        </option>
+
+                        <option value="employment">
+                            Employment
+                        </option>
+
+                        <option value="health">
+                            Health Services
+                        </option>
+
+                        <option value="documents">
+                            Documents & Certificates
+                        </option>
+
+                        <option value="financial">
+                            Financial Assistance
+                        </option>
+
+                        <option value="government">
+                            Government Services
+                        </option>
+
+                        <option value="other">
+                            Other
+                        </option>
+
+                    </select>
+
+                    <span
+                        class="error-message"
+                        id="categoryError">
+                    </span>
+
+                </div>
+
+
+                <!-- SERVICE -->
+
+                <div class="form-group">
+
+                    <label for="service">
+                        Service Required
+                    </label>
+
+                    <input
+                        type="text"
+                        id="service"
+                        name="service"
+                        placeholder="Example: Income Certificate"
+                        required
+                    >
+
+                    <span
+                        class="error-message"
+                        id="serviceError">
+                    </span>
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="form-group">
+
+                    <label for="description">
+                        Briefly Describe Your Requirement
+                    </label>
+
+                    <input
+                        type="text"
+                        id="description"
+                        name="description"
+                        placeholder="Tell us what assistance you need"
+                        required
+                    >
+
+                    <span
+                        class="error-message"
+                        id="descriptionError">
+                    </span>
+
+                </div>
+
+
+                <!-- SMART HELP -->
+
+                <div class="help-box">
+
+                    <strong>
+                        Smart Assistance
+                    </strong>
+
+                    <p>
+                        ADLAA can use the information you provide
+                        to identify relevant service options and
+                        guide you towards the next step.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="help-btn"
+                        id="smartHelpBtn">
+                        Get Assistance
+                    </button>
+
+                </div>
+
+
+                <!-- BUTTONS -->
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        class="btn secondary-btn"
+                        id="prevStep">
+                        Back
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn primary-btn"
+                        id="nextStep2">
+                        Continue
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================
+                 STEP 3
+            ========================== -->
+
+            <section class="form-step" id="step3">
+
+                <h2>
+                    Review Your Application
+                </h2>
+
+                <p class="step-description">
+                    Please review your information before submitting.
+                </p>
+
+
+                <div class="dashboard-card">
+
+                    <div class="summary-list">
+
+                        <div>
+                            <span>Full Name</span>
+                            <strong id="summaryName">
+                                —
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>Age</span>
+                            <strong id="summaryAge">
+                                —
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>Location</span>
+                            <strong id="summaryLocation">
+                                —
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>Category</span>
+                            <strong id="summaryCategory">
+                                —
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>Service</span>
+                            <strong id="summaryService">
+                                —
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>Requirement</span>
+                            <strong id="summaryDescription">
+                                —
+                            </strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- AUTOMATION MESSAGE -->
+
+                <div class="help-box">
+
+                    <strong>
+                        Before You Submit
+                    </strong>
+
+                    <p>
+                        Your information will be processed to
+                        generate a simplified application overview
+                        and service guidance.
+                    </p>
+
+                </div>
+
+
+                <!-- ACTIONS -->
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        class="btn secondary-btn"
+                        id="backToStep2">
+                        Back
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="btn primary-btn">
+                        Submit Application
+                    </button>
+
+                </div>
+
+            </section>
+
+        </form>
+
+
+        <!-- =========================
+             SUCCESS MESSAGE
+        ========================== -->
+
+        <section
+            class="success-message"
+            id="successMessage">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h2>
+                Application Submitted!
+            </h2>
+
+            <p>
+                Your application has been successfully recorded.
+                You can now view the application overview on your dashboard.
+            </p>
+
+            <a
+                href="/dashboard.html"
+                class="btn primary-btn">
+                Go to Dashboard
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 ADLAA. Smart Digital Service Platform.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="/script.js"></script>
+
+</body>
+</html>
